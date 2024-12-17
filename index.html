@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Supplementary website for 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'.">
+  <meta property="og:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation"/>
+  <meta property="og:description" content="More information about the results, comparisons, method and dataset of 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'"/>
+  <!-- <meta property="og:url" content="URL OF THE WEBSITE"/> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+
+  <meta name="twitter:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation">
+  <meta name="twitter:description" content="More information about the results, comparisons, method and dataset of 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Humans: Face, body, pose, gesture, movement">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/video-gallery.css">
+
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/video-gallery.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ZeroHSI:<br> Zero-Shot 4D Human-Scene Interaction by Video Generation</h1>
+          <div class="is-size-3 publication-authors">
+            <span class="author-block">
+              Anonymous CVPR submission
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Real scene demos -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Real Scene Demos</h2>
+            
+            <div class="video-gallery-buttons" id="gallery-buttons-real-scene">
+                <button class="button is-primary" data-video-index="0">
+                    <img src="static/images/garden_1.png" alt="Garden 1">
+                </button>
+                <button class="button" data-video-index="1">
+                    <img src="static/images/bicycle.png" alt="Bicycle">
+                </button>
+                <button class="button" data-video-index="2">
+                    <img src="static/images/garden_0.png" alt="Garden 0">
+                </button>
+                <button class="button" data-video-index="3">
+                    <img src="static/images/room.png" alt="Room">
+                </button>
+                <button class="button" data-video-index="4">
+                    <img src="static/images/garden_2.png" alt="Garden 2">
+                </button>
+                <button class="button" data-video-index="5">
+                    <img src="static/images/truck.png" alt="Truck">
+                </button>
+            </div>
+
+            <div class="video-gallery-carousel" id="gallery-carousel-real-scene">
+              <div class="video-gallery-item active">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/garden_1.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is lifting a vase."</p>
+                  </div>
+              </div>
+              <div class="video-gallery-item">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/bicycle.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is sitting on the bench."</p>
+                  </div>
+              </div>
+              <div class="video-gallery-item">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/garden_0.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is watering flowers with a watering can."</p>
+                  </div>
+              </div>
+              <div class="video-gallery-item">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/room.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is playing guitar while sitting on the sofa."</p>
+                  </div>
+              </div>
+              <div class="video-gallery-item">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/garden_2.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is operating a lawn mower."</p>
+                  </div>
+              </div>
+              <div class="video-gallery-item">
+                  <video preload="auto" controls muted loop height="100%">
+                      <source src="static/videos/truck.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-content">
+                      <p>Text Prompt: "The person is cleaning the car."</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--End real scene demos-->
+
+
+<!-- Comparison of dynamic scenario -->
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container">
+          <h2 class="title is-2">Comparison of Dynamic Scenario</h2>
+          
+          <div class="video-gallery-buttons" id="gallery-buttons-dynamic">
+              <button class="button is-primary" data-video-index="0">
+                  <img src="static/images/1_living_room_dynamic.png" alt="Living Room Dynamic">
+              </button>
+              <button class="button" data-video-index="1">
+                  <img src="static/images/2_gym_dynamic.png" alt="Gym Dynamic">
+              </button>
+              <button class="button" data-video-index="2">
+                  <img src="static/images/7_store_dynamic_0.png" alt="Store Dynamic 0">
+              </button>
+              <button class="button" data-video-index="3">
+                  <img src="static/images/7_store_dynamic_1.png" alt="Store Dynamic 1">
+              </button>
+          </div>
+
+          <div class="video-gallery-carousel" id="gallery-carousel-dynamic">
+            <div class="video-gallery-item active">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/1_living_room_dynamic.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is playing guitar while sitting on the sofa."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/2_gym_dynamic.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is lifting weights."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/7_store_dynamic_0.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is sliding while sitting on the chair."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/7_store_dynamic_1.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is pushing shopping cart."</p>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End comparison of dynamic scenario -->
+
+
+<!-- Comparison of static scenario -->
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container">
+          <h2 class="title is-2">Comparison of Static Scenario</h2>
+          
+          <div class="video-gallery-buttons" id="gallery-buttons-static">
+              <button class="button is-primary" data-video-index="0">
+                  <img src="static/images/0_bedroom.png" alt="Bedroom">
+              </button>
+              <button class="button" data-video-index="1">
+                  <img src="static/images/1_living_room.png" alt="Living Room">
+              </button>
+              <button class="button" data-video-index="2">
+                  <img src="static/images/4_playground.png" alt="Playground">
+              </button>
+              <button class="button" data-video-index="3">
+                  <img src="static/images/7_store.png" alt="Store">
+              </button>
+          </div>
+
+          <div class="video-gallery-carousel" id="gallery-carousel-static">
+            <div class="video-gallery-item active">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/0_bedroom.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is leaning on the ladder."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/1_living_room.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is sitting on the sofa back."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/4_playground.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is sliding down the slide."</p>
+                </div>
+            </div>
+            <div class="video-gallery-item">
+                <video preload="auto" controls muted loop height="100%">
+                    <source src="static/videos/7_store.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <p>Text Prompt: "The person is picking out snacks on the shelf."</p>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End comparison of static scenario -->
+
+
+<!-- Method -->
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-2">Method</h2>
+          <figure class="image">
+              <img src="static/images/method.png" alt="Research Poster">
+              <figcaption class="has-text-centered mt-3">
+                Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
+              </figcaption>
+          </figure>
+      </div>
+  </div>
+</section>
+<!--End method -->
+
+
+<!-- Dataset -->
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-2">The AnyInteraction Dataset</h2>
+          <figure class="image">
+              <img src="static/images/dataset.png" alt="Research Poster">
+              <figcaption class="has-text-centered mt-3">
+                Our AnyInteraction dataset encompasses 12 diverse scenes (7 indoor and 5 outdoor) from various sources including TRUMANS, public 3D assets, and reconstructed real scenes from Mip-NeRF 360 and Tanks and Temples datasets. It features 7 types of rigid dynamic objects (Guitar, Barbell, Watering Can, Office Chair, Shopping Cart, Vase, and Mower), supporting 22 evaluation instances that include 13 static and 9 dynamic object interaction.
+              </figcaption>
+          </figure>
+      </div>
+  </div>
+</section>
+<!--End Dataset -->
+
+
+</body>
+</html>

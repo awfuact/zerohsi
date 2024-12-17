@@ -1,0 +1,150 @@
+/* Base styles */
+:root {
+    --primary-color: hsl(171, 100%, 41%);
+    --text-color: #4a4a4a;
+    --content-width-lg: 1024px;
+    --content-width-md: 1024px;
+}
+
+/* Typography scale using Bootstrap's classes */
+.h1, h1 { font-size: calc(1.375rem + 1.5vw) !important; }
+.h2, h2 { font-size: calc(1.325rem + 0.9vw) !important; }
+.h3, h3 { font-size: calc(1.3rem + 0.6vw) !important; }
+.p, p, figcaption { font-size: 1rem !important; }
+
+/* Updated video-content text sizes */
+.video-content p {
+    font-size: calc(1.1rem + 0.3vw) !important;
+    line-height: 1.6;
+}
+
+@media (min-width: 1200px) {
+    .h1, h1 { font-size: 2.5rem !important; }
+    .h2, h2 { font-size: 2rem !important; }
+    .h3, h3 { font-size: 1.75rem !important; }
+    .p, p, figcaption { font-size: 1.1rem !important; }
+    .video-content p { font-size: 1.4rem !important; }
+}
+
+/* Gallery styles */
+.video-gallery-carousel {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.video-gallery-item {
+    display: none;
+    width: 100%;
+    max-width: var(--content-width-md);
+}
+
+.video-gallery-item.active {
+    display: block;
+}
+
+.video-gallery-carousel video {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.video-gallery-buttons {
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--content-width-md);
+}
+
+.video-gallery-buttons .button {
+    padding: 0;
+    height: auto;
+    overflow: hidden;
+    width: 120px;
+    height: 80px;
+}
+
+.video-gallery-buttons .button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-gallery-buttons .button.is-primary {
+    border: 3px solid var(--primary-color);
+    padding: 0;
+}
+
+/* Content styles */
+.video-content {
+    margin: 1.5rem auto;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: var(--content-width-md);
+}
+
+.hero-body .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.title.is-2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Figure styles */
+figure {
+    width: 100%;
+    max-width: var(--content-width-lg);
+    margin: 2rem auto;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+figure figcaption {
+    margin-top: 1rem;
+    color: var(--text-color);
+    padding: 0 1rem;
+}
+
+/* Bootstrap container override */
+.container {
+    max-width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container { max-width: 540px; }
+}
+
+@media (min-width: 768px) {
+    .container { max-width: 720px; }
+}
+
+@media (min-width: 992px) {
+    .container { max-width: 960px; }
+}
+
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; }
+}
+
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+}
