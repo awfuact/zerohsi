@@ -2,6 +2,10 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.footer .content p, 
+.footer .content a {
+  font-size: 14px !important;
+}
 
 .footer .icon-link {
     font-size: 25px;
@@ -17,10 +21,22 @@ body {
   font-variant: small-caps;
 }
 
+/* Add image margin control with breakpoints */
+@media screen and (max-width: 768px) {
+  .image {
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .image {
+    margin-top: 0 !important;
+  }
+}
 
 .teaser .hero-body {
   padding-top: 0;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .teaser {

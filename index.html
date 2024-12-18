@@ -1,63 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Supplementary website for 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'.">
-  <meta property="og:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation"/>
-  <meta property="og:description" content="More information about the results, comparisons, method and dataset of 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'"/>
-  <!-- <meta property="og:url" content="URL OF THE WEBSITE"/> -->
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/> -->
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="Project page for 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'.">
+    <meta property="og:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation"/>
+    <meta property="og:description" content="Human-scene interaction (HSI) generation is crucial for applications in embodied AI, virtual reality, and robotics. While existing methods can synthesize realistic human motions in 3D scenes and generate plausible human-object interactions, they heavily rely on datasets containing paired 3D scene and motion capture data, which are expensive and time-consuming to collect across diverse environments and interactions. We present ZeroHSI, a novel approach that enables zero-shot 4D human-scene interaction synthesis by integrating video generation and neural human rendering. Our key insight is to leverage the rich motion priors learned by state-of-the-art video generation models, which have been trained on vast amounts of natural human movements and interactions, and use differentiable rendering to reconstruct human-scene interactions. ZeroHSI can synthesize realistic human motions in both static scenes and environments with dynamic objects, without requiring any ground-truth motion data. We evaluate ZeroHSI on a curated dataset of different types of various indoor and outdoor scenes with different interaction prompts, demonstrating its ability to generate diverse and contextually appropriate human-scene interactions."/>
+    <meta property="og:url" content="https://awfuact.github.io/zerohsi/"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/images/banner_image.jpg" />
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation">
-  <meta name="twitter:description" content="More information about the results, comparisons, method and dataset of 'ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation'">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image"> -->
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Humans: Face, body, pose, gesture, movement">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:title" content="ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation">
+    <meta name="twitter:description" content="Human-scene interaction (HSI) generation is crucial for applications in embodied AI, virtual reality, and robotics. While existing methods can synthesize realistic human motions in 3D scenes and generate plausible human-object interactions, they heavily rely on datasets containing paired 3D scene and motion capture data, which are expensive and time-consuming to collect across diverse environments and interactions. We present ZeroHSI, a novel approach that enables zero-shot 4D human-scene interaction synthesis by integrating video generation and neural human rendering. Our key insight is to leverage the rich motion priors learned by state-of-the-art video generation models, which have been trained on vast amounts of natural human movements and interactions, and use differentiable rendering to reconstruct human-scene interactions. ZeroHSI can synthesize realistic human motions in both static scenes and environments with dynamic objects, without requiring any ground-truth motion data. We evaluate ZeroHSI on a curated dataset of different types of various indoor and outdoor scenes with different interaction prompts, demonstrating its ability to generate diverse and contextually appropriate human-scene interactions.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/twitter_banner_image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="zero-shot, human-scene interaction, video generation, 4D">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <title>ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation</title>
+    <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/video-gallery.css">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/video-gallery.css">
 
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-  <script src="static/js/video-gallery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/d383128d10.js" crossorigin="anonymous"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/video-gallery.js"></script>
 </head>
 <body>
 
 
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ZeroHSI:<br> Zero-Shot 4D Human-Scene Interaction by Video Generation</h1>
-          <div class="is-size-3 publication-authors">
-            <span class="author-block">
-              Anonymous CVPR submission
-            </span>
-          </div>
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">ZeroHSI: Zero-Shot 4D Human-Scene Interaction<br> by Video Generation</h1>
+                    <div class="is-size-5 publication-authors" style="margin-bottom: 1rem;">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                            <a href="https://awfuact.github.io/" target="_blank">Hongjie Li</a><sup>1,2*</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://kovenyu.com/" target="_blank">Hong-Xing "Koven" Yu</a><sup>1*</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://lijiaman.github.io/" target="_blank">Jiaman Li</a><sup>1</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a><sup>1</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                    </div>
+                    <div class="is-size-5 publication-authors" style="margin-bottom: 1rem;">
+                        <span class="author-block">
+                            <sup>1</sup>Stanford University &nbsp&nbsp
+                            <sup>2</sup>Peking University &nbsp&nbsp
+                            <sup>*</sup>Contributed Equally &nbsp
+                        </span>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+            
+                            <!-- ArXiv Abstract Link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+            
+                            <!-- Code link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code (coming soon)</span>
+                                </a>
+                            </span>
+            
+                            <!-- Data link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fa-solid fa-download"></i></span>
+                                    <span>Data (coming soon)</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+
+
+<!-- teaser -->
+<section class="hero teaser">
+    <div class="hero-body">
+        <div class="container">
+            <figure class="image">
+                <img src="static/images/teaser.jpg" alt="Research Poster">
+                <figcaption class="mt-3">
+                    ZeroHSI takes a 3D scene, an interactable object, a language description, and initial states as input to synthesize both human and dynamic object motion sequences. By distilling interactions from video generation models, ZeroHSI enables zero-shot synthesis of natural human-scene interactions in various 3D environments, supporting both static scenes and dynamic object manipulations even in reconstructed real-world scenes.
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+<!--End teaser -->
 
 
 <!-- Real scene demos -->
@@ -265,17 +338,37 @@
 <!-- End comparison of static scenario -->
 
 
+<!-- Paper abstract -->
+<section class="hero is-small mb-5">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-2">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Human-scene interaction (HSI) generation is crucial for applications in embodied AI, virtual reality, and robotics. While existing methods can synthesize realistic human motions in 3D scenes and generate plausible human-object interactions, they heavily rely on datasets containing paired 3D scene and motion capture data, which are expensive and time-consuming to collect across diverse environments and interactions. We present ZeroHSI, a novel approach that enables zero-shot 4D human-scene interaction synthesis by integrating video generation and neural human rendering. Our key insight is to leverage the rich motion priors learned by state-of-the-art video generation models, which have been trained on vast amounts of natural human movements and interactions, and use differentiable rendering to reconstruct human-scene interactions. ZeroHSI can synthesize realistic human motions in both static scenes and environments with dynamic objects, without requiring any ground-truth motion data. We evaluate ZeroHSI on a curated dataset of different types of various indoor and outdoor scenes with different interaction prompts, demonstrating its ability to generate diverse and contextually appropriate human-scene interactions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+
 <!-- Method -->
 <section class="hero is-small">
   <div class="hero-body">
       <div class="container">
-        <h2 class="title is-2">Method</h2>
-          <figure class="image">
-              <img src="static/images/method.png" alt="Research Poster">
-              <figcaption class="has-text-centered mt-3">
+        <h2 class="title is-2">Method Overview</h2>
+        <figure class="image">
+            <img src="static/images/method.png" alt="Research Poster">
+            <figcaption class="mt-3">
                 Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
-              </figcaption>
-          </figure>
+            </figcaption>
+        </figure>
       </div>
   </div>
 </section>
@@ -287,16 +380,33 @@
   <div class="hero-body">
       <div class="container">
         <h2 class="title is-2">The AnyInteraction Dataset</h2>
-          <figure class="image">
-              <img src="static/images/dataset.png" alt="Research Poster">
-              <figcaption class="has-text-centered mt-3">
-                Our AnyInteraction dataset encompasses 12 diverse scenes (7 indoor and 5 outdoor) from various sources including TRUMANS, public 3D assets, and reconstructed real scenes from Mip-NeRF 360 and Tanks and Temples datasets. It features 7 types of rigid dynamic objects (Guitar, Barbell, Watering Can, Office Chair, Shopping Cart, Vase, and Mower), supporting 22 evaluation instances that include 13 static and 9 dynamic object interaction.
-              </figcaption>
-          </figure>
+        <figure class="image">
+            <img src="static/images/dataset.png" alt="Research Poster">
+            <figcaption class="mt-3">
+                We curate the AnyInteraction dataset to evaluate zero-shot HSI synthesis. The dataset encompasses 12 diverse scenes (7 indoor and 5 outdoor) from various sources including TRUMANS, public 3D assets, and reconstructed real scenes from Mip-NeRF 360 and Tanks and Temples datasets. It features 7 types of rigid dynamic objects (Guitar, Barbell, Watering Can, Office Chair, Shopping Cart, Vase, and Mower), supporting 22 evaluation instances that include 13 static and 9 dynamic object interaction.
+            </figcaption>
+        </figure>
       </div>
   </div>
 </section>
 <!--End Dataset -->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                        <br>
+                        This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 </body>
