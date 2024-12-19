@@ -3,16 +3,17 @@ const VideoGallery = (function() {
 
     function syncVideos(videos) {
         const primary = videos[0];
-        const secondary = videos[1];
+        const others = Array.from(videos).slice(1);
         
         function checkSync() {
-            const timeDiff = Math.abs(primary.currentTime - secondary.currentTime);
-            
-            if (timeDiff > 0.016) {
-                secondary.currentTime = primary.currentTime;
-            }
+            others.forEach(video => {
+                const timeDiff = Math.abs(primary.currentTime - video.currentTime);
+                if (timeDiff > 0.016) {
+                    video.currentTime = primary.currentTime;
+                }
+            });
 
-            if (!primary.paused && !secondary.paused) {
+            if (!primary.paused && others.every(v => !v.paused)) {
                 animationFrameId = requestAnimationFrame(checkSync);
             }
         }
@@ -20,12 +21,11 @@ const VideoGallery = (function() {
         return checkSync;
     }
 
-    async function playVideosPair(videos) {
+    async function playVideos(videos) {
         if (animationFrameId) {
             cancelAnimationFrame(animationFrameId);
         }
 
-        // Prepare videos for autoplay
         videos.forEach(video => {
             video.currentTime = 0;
             video.muted = true;
@@ -34,16 +34,13 @@ const VideoGallery = (function() {
         });
 
         try {
-            // Force play each video
             for (let video of videos) {
                 await video.play();
             }
 
-            // Start sync monitoring
             const checkSync = syncVideos(videos);
             animationFrameId = requestAnimationFrame(checkSync);
 
-            // Set up looping
             const handleTimeUpdate = function() {
                 if (this.currentTime >= this.duration - 0.1) {
                     videos.forEach(v => {
@@ -56,8 +53,7 @@ const VideoGallery = (function() {
             videos[0].addEventListener('timeupdate', handleTimeUpdate);
         } catch (error) {
             console.log("Playback failed:", error);
-            // Retry playback
-            setTimeout(() => playVideosPair(videos), 100);
+            setTimeout(() => playVideos(videos), 100);
         }
     }
 
@@ -93,40 +89,39 @@ const VideoGallery = (function() {
         }
 
         const container = document.getElementById(galleryId);
-        const pairs = container.querySelectorAll('.video-pair');
+        const videoSets = container.querySelectorAll('.video-pair, .video-triple');
         const buttons = container.parentElement.querySelector('.video-gallery-buttons').querySelectorAll('.button');
         
-        // Reset all videos
-        pairs.forEach(pair => {
-            const videos = pair.querySelectorAll('video');
+        videoSets.forEach(set => {
+            const videos = set.querySelectorAll('video');
             videos.forEach(video => {
                 video.pause();
                 video.currentTime = 0;
                 video.replaceWith(video.cloneNode(true));
             });
-            pair.classList.remove('active');
+            set.classList.remove('active');
         });
 
-        // Update buttons
         buttons.forEach(button => button.classList.remove('is-primary'));
         buttons[index].classList.add('is-primary');
 
-        // Handle selected pair
-        const selectedPair = pairs[index];
-        selectedPair.classList.add('active');
-        const videosToPlay = selectedPair.querySelectorAll('video');
+        const selectedSet = videoSets[index];
+        selectedSet.classList.add('active');
+        const videosToPlay = selectedSet.querySelectorAll('video');
 
-        // Prepare videos
         videosToPlay.forEach(video => {
             video.muted = true;
             video.playsInline = true;
             video.setAttribute('autoplay', '');
         });
 
-        // Load and play
         loadVideos(videosToPlay)
             .then(() => {
-                playVideosPair(videosToPlay);
+                playVideos(videosToPlay);
+                // Explicitly start playing each video
+                videosToPlay.forEach(video => {
+                    video.play().catch(e => console.log("Play failed:", e));
+                });
             })
             .catch(error => {
                 console.error("Error loading videos:", error);
@@ -145,10 +140,10 @@ const VideoGallery = (function() {
             });
         });
 
-        // Initialize first pair
-        const firstPair = container.querySelector('.video-pair.active');
-        if (firstPair) {
-            const initialVideos = firstPair.querySelectorAll('video');
+        // Initialize first active set (either pair or triple)
+        const firstActiveSet = container.querySelector('.video-pair.active, .video-triple.active');
+        if (firstActiveSet) {
+            const initialVideos = firstActiveSet.querySelectorAll('video');
             
             // Prepare initial videos
             initialVideos.forEach(video => {
@@ -160,7 +155,11 @@ const VideoGallery = (function() {
             // Load and play initial videos
             loadVideos(initialVideos)
                 .then(() => {
-                    playVideosPair(initialVideos);
+                    playVideos(initialVideos);
+                    // Explicitly start playing each video
+                    initialVideos.forEach(video => {
+                        video.play().catch(e => console.log("Initial play failed:", e));
+                    });
                 })
                 .catch(error => {
                     console.error("Error loading initial videos:", error);
@@ -177,7 +176,10 @@ const VideoGallery = (function() {
 
     return {
         init: function() {
+            // Initialize both galleries
             initGallery('gallery-buttons-real-scene', 'gallery-carousel-real-scene');
+            initGallery('gallery-buttons-dynamic', 'gallery-carousel-dynamic');
+            initGallery('gallery-buttons-static', 'gallery-carousel-static');
         },
         cleanup: cleanup
     };

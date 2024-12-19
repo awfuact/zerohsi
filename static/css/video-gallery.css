@@ -4,6 +4,7 @@
     --text-color: #4a4a4a;
     --content-width-lg: 1024px;
     --content-width-md: 1024px;
+    --video-padding: 1rem;
 }
 
 /* Typography scale using Bootstrap's classes */
@@ -49,6 +50,8 @@
     width: 100%;
     max-height: 80vh;
     object-fit: contain;
+    background: #fff;
+    padding: var(--video-padding);
 }
 
 .video-gallery-buttons {
@@ -88,29 +91,76 @@
     max-width: var(--content-width-md);
 }
 
+/* Video pair styles */
 .video-pair {
     display: none;
     width: 100%;
     max-width: var(--content-width-md);
-    gap: 0; /* Changed from 1rem to 0 */
+    gap: 0;
 }
 
 .video-pair.active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
 }
 
-.video-container {
+.video-pair .video-container {
     flex: 1;
     min-width: 300px;
-    max-width: 50%; /* Changed from calc(50% - 0.5rem) since we don't need gap compensation */
+    width: 50%;
+    max-width: 50%;
 }
 
+/* Video triple styles */
+.video-triple {
+    display: none;
+    width: 100%;
+    max-width: var(--content-width-md);
+    gap: 0;
+}
+
+.video-triple.active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.video-triple .video-container {
+    flex: 1;
+    min-width: 300px;
+    width: 33.333%;
+    max-width: 33.333%;
+    display: flex;
+}
+
+/* Shared video container styles */
+.video-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Remove padding from container */
+    margin: 0;
+    background: #fff;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    background: #fff;
+    padding: 0;
+    margin: 0; /* Ensure no margin on video */
+}
+
+/* Caption styles */
 .video-caption {
     text-align: center;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0;
+    font-size: 1.2rem;
     color: var(--text-color);
 }
 
@@ -118,20 +168,9 @@
     width: 100%;
     text-align: center;
     margin-top: 1rem;
-    font-size: 1.1rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
     color: var(--text-color);
-}
-
-.video-container video {
-    width: 100%;
-    max-height: 60vh;
-    object-fit: contain;
-}
-
-@media (max-width: 768px) {
-    .video-container {
-        max-width: 100%;
-    }
 }
 
 .hero-body .container {
@@ -151,7 +190,7 @@ figure {
     width: 100%;
     max-width: var(--content-width-lg);
     margin: 2rem auto;
-    text-align: left;  /* Changed from center to left */
+    text-align: left;
 }
 
 figure img {
@@ -164,7 +203,49 @@ figure figcaption {
     margin-top: 1rem;
     color: var(--text-color);
     padding: 0 1rem;
-    text-align: left;  /* Changed from center to left */
+    text-align: left;
+    font-size: 1.2rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    :root {
+        --video-padding: 0.5rem;
+    }
+    
+    .video-pair,
+    .video-triple {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .video-pair .video-container,
+    .video-triple .video-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .video-container video {
+        max-height: 40vh;  /* Reduced from 50vh */
+        width: auto;  /* Allow width to adjust based on height */
+        max-width: 100%;  /* Ensure it doesn't overflow container */
+        margin: 0 auto;  /* Center the video if width is less than container */
+    }
+
+    .video-caption {
+        margin: 0.25rem 0;
+    }
+
+    .pair-caption {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Additional responsive adjustment for very small screens */
+@media (max-width: 480px) {
+    .video-container video {
+        max-height: 30vh;  /* Even smaller for very small screens */
+    }
 }
 
 /* Bootstrap container override */
