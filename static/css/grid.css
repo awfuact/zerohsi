@@ -12,8 +12,14 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    padding: 0;
+    padding: 3px;
     margin-bottom: 0;
+    transition: transform 0.3s ease; /* Only transition the transform property */
+    box-sizing: border-box;
+}
+
+.subfigure:hover {
+    transform: scale(0.98);
 }
 
 .subfigure img {
@@ -23,7 +29,6 @@
 
 .subfigure-caption {
     text-align: center;
-    /* Base font size for large screens */
     font-size: 1.2rem;
     width: 100%;
     white-space: nowrap;
@@ -42,9 +47,8 @@
 .enlarged-figure {
     display: none;
     grid-column: 1 / -1;
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-align: center;
-    order: -1;
 }
 
 .enlarged-figure img {
@@ -59,40 +63,140 @@
 .selected {
     border: 3px solid hsl(171, 100%, 41%);
     padding: 0;
+    transform: scale(0.98);
+}
+
+/* Position subfigures and enlarged figures */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+}
+
+/* Position enlarged figures after their respective rows */
+.enlarged-figure[id="enlarged-figure-0"],
+.enlarged-figure[id="enlarged-figure-1"],
+.enlarged-figure[id="enlarged-figure-2"],
+.enlarged-figure[id="enlarged-figure-3"] {
+    grid-row: 2;
+}
+
+.enlarged-figure[id="enlarged-figure-4"],
+.enlarged-figure[id="enlarged-figure-5"],
+.enlarged-figure[id="enlarged-figure-6"],
+.enlarged-figure[id="enlarged-figure-7"] {
+    grid-row: 3;
+}
+
+.enlarged-figure[id="enlarged-figure-8"],
+.enlarged-figure[id="enlarged-figure-9"],
+.enlarged-figure[id="enlarged-figure-10"],
+.enlarged-figure[id="enlarged-figure-11"] {
+    grid-row: 4;
+}
+
+/* Main caption stays at the bottom */
+.main-caption {
+    grid-column: 1 / -1;
+    grid-row: 5;
 }
 
 /* Responsive grid layouts */
-/* Large screens (default) - 4x3 grid */
-.grid-container {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-/* Medium screens - 3x4 grid */
 @media screen and (max-width: 1023px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
     }
-    
-    /* .subfigure-caption {
-        font-size: calc(1vw + 0.5rem);
-    } */
+
+    /* Adjust enlarged figure positions for 3-column layout */
+    .enlarged-figure[id="enlarged-figure-0"],
+    .enlarged-figure[id="enlarged-figure-1"],
+    .enlarged-figure[id="enlarged-figure-2"] {
+        grid-row: 2;
+    }
+
+    .enlarged-figure[id="enlarged-figure-3"],
+    .enlarged-figure[id="enlarged-figure-4"],
+    .enlarged-figure[id="enlarged-figure-5"] {
+        grid-row: 3;
+    }
+
+    .enlarged-figure[id="enlarged-figure-6"],
+    .enlarged-figure[id="enlarged-figure-7"],
+    .enlarged-figure[id="enlarged-figure-8"] {
+        grid-row: 4;
+    }
+
+    .enlarged-figure[id="enlarged-figure-9"],
+    .enlarged-figure[id="enlarged-figure-10"],
+    .enlarged-figure[id="enlarged-figure-11"] {
+        grid-row: 5;
+    }
+
+    .main-caption {
+        grid-row: 6;
+    }
 }
 
-/* Small screens - 2x6 grid */
 @media screen and (max-width: 767px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    /* .subfigure-caption {
-        font-size: calc(1.5vw + 0.5rem);
-    } */
-    
-    .enlarged-figure {
-        margin-bottom: 10px;
+
+    /* Adjust enlarged figure positions for 2-column layout */
+    .enlarged-figure[id="enlarged-figure-0"],
+    .enlarged-figure[id="enlarged-figure-1"] {
+        grid-row: 2;
     }
-    
+
+    .enlarged-figure[id="enlarged-figure-2"],
+    .enlarged-figure[id="enlarged-figure-3"] {
+        grid-row: 3;
+    }
+
+    .enlarged-figure[id="enlarged-figure-4"],
+    .enlarged-figure[id="enlarged-figure-5"] {
+        grid-row: 4;
+    }
+
+    .enlarged-figure[id="enlarged-figure-6"],
+    .enlarged-figure[id="enlarged-figure-7"] {
+        grid-row: 5;
+    }
+
+    .enlarged-figure[id="enlarged-figure-8"],
+    .enlarged-figure[id="enlarged-figure-9"] {
+        grid-row: 6;
+    }
+
+    .enlarged-figure[id="enlarged-figure-10"],
+    .enlarged-figure[id="enlarged-figure-11"] {
+        grid-row: 7;
+    }
+
     .main-caption {
+        grid-row: 8;
         font-size: 0.9rem;
     }
+}
+
+/* Hover effect indicator */
+.subfigure {
+    position: relative;
+    overflow: hidden;
+}
+
+.subfigure::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(171, 171, 171, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.subfigure:hover::before {
+    opacity: 1;
 }
