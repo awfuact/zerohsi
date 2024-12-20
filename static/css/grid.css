@@ -1,0 +1,98 @@
+/* Base styles */
+.grid-container {
+    display: grid;
+    gap: 0 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.subfigure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.subfigure img {
+    width: 100%;
+    height: auto;
+}
+
+.subfigure-caption {
+    text-align: center;
+    /* Base font size for large screens */
+    font-size: 1.2rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.main-caption {
+    text-align: left;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+}
+
+.enlarged-figure {
+    display: none;
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    text-align: center;
+    order: -1;
+}
+
+.enlarged-figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+.active {
+    display: block;
+}
+
+.selected {
+    border: 3px solid hsl(171, 100%, 41%);
+    padding: 0;
+}
+
+/* Responsive grid layouts */
+/* Large screens (default) - 4x3 grid */
+.grid-container {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Medium screens - 3x4 grid */
+@media screen and (max-width: 1023px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* .subfigure-caption {
+        font-size: calc(1vw + 0.5rem);
+    } */
+}
+
+/* Small screens - 2x6 grid */
+@media screen and (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* .subfigure-caption {
+        font-size: calc(1.5vw + 0.5rem);
+    } */
+    
+    .enlarged-figure {
+        margin-bottom: 10px;
+    }
+    
+    .main-caption {
+        font-size: 0.9rem;
+    }
+}

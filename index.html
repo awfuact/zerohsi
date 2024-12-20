@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="static/css/video-gallery.css">
+    <link rel="stylesheet" href="static/css/grid.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -43,6 +44,7 @@
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
     <script src="static/js/video-gallery.js"></script>
+    <script src="static/js/grid.js"></script>
 </head>
 <body>
 
@@ -387,16 +389,16 @@
             
             <div class="video-gallery-buttons" id="gallery-buttons-static">
                 <button class="button is-primary" data-video-index="0">
-                    <img src="static/images/0_bedroom.png" alt="Bedroom">
+                    <img src="static/images/0_bedroom_static.png" alt="Bedroom">
                 </button>
                 <button class="button" data-video-index="1">
-                    <img src="static/images/1_living_room.png" alt="Living Room">
+                    <img src="static/images/1_living_room_static.png" alt="Living Room">
                 </button>
                 <button class="button" data-video-index="2">
-                    <img src="static/images/4_playground.png" alt="Playground">
+                    <img src="static/images/4_playground_static.png" alt="Playground">
                 </button>
                 <button class="button" data-video-index="3">
-                    <img src="static/images/7_store.png" alt="Store">
+                    <img src="static/images/7_store_static.png" alt="Store">
                 </button>
             </div>
 
@@ -516,12 +518,12 @@
 <!-- Method -->
 <section class="hero is-small">
   <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-2">Method Overview</h2>
-        <figure class="image" style="margin-bottom: 0;">
-            <img src="static/images/method.png" alt="Research Poster">
-            <figcaption class="mt-3">
-                Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
+        <div class="container">
+            <h2 class="title is-2">Method Overview</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <img src="static/images/method.png" alt="Research Poster">
+                <figcaption class="mt-3">
+                    Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
             </figcaption>
         </figure>
       </div>
@@ -532,6 +534,112 @@
 
 <!-- Dataset -->
 <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">The AnyInteraction Dataset</h2>
+            <figure class="grid-container" style="margin-bottom: 0;">
+                <!-- Enlarged figures (hidden by default) -->
+                <div id="enlarged-figure-0" class="enlarged-figure">
+                    <img src="static/images/0_bedroom.png" alt="Big Figure 00">
+                </div>
+                <div id="enlarged-figure-1" class="enlarged-figure">
+                    <img src="static/images/1_living_room.png" alt="Big Figure 01">
+                </div>
+                <div id="enlarged-figure-2" class="enlarged-figure">
+                    <img src="static/images/2_gym.png" alt="Big Figure 02">
+                </div>
+                <div id="enlarged-figure-3" class="enlarged-figure">
+                    <img src="static/images/3_bar.png" alt="Big Figure 03">
+                </div>
+                <div id="enlarged-figure-4" class="enlarged-figure">
+                    <img src="static/images/4_playground.png" alt="Big Figure 04">
+                </div>
+                <div id="enlarged-figure-5" class="enlarged-figure">
+                    <img src="static/images/5_greenhouse.png" alt="Big Figure 05">
+                </div>
+                <div id="enlarged-figure-6" class="enlarged-figure">
+                    <img src="static/images/6_cafe.png" alt="Big Figure 06">
+                </div>
+                <div id="enlarged-figure-7" class="enlarged-figure">
+                    <img src="static/images/7_store.png" alt="Big Figure 07">
+                </div>
+                <div id="enlarged-figure-8" class="enlarged-figure">
+                    <img src="static/images/8_garden.png" alt="Big Figure 08">
+                </div>
+                <div id="enlarged-figure-9" class="enlarged-figure">
+                    <img src="static/images/9_bicycle.png" alt="Big Figure 09">
+                </div>
+                <div id="enlarged-figure-10" class="enlarged-figure">
+                    <img src="static/images/10_room.png" alt="Big Figure 10">
+                </div>
+                <div id="enlarged-figure-11" class="enlarged-figure">
+                    <img src="static/images/11_truck.png" alt="Big Figure 11">
+                </div>
+                
+                <!-- Small figures -->
+                <div class="subfigure">
+                    <img src="static/images/0_bedroom.png" alt="Figure 00">
+                    <div class="subfigure-caption">Bedroom</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/1_living_room.png" alt="Figure 01">
+                    <div class="subfigure-caption">Living Room</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/2_gym.png" alt="Figure 02">
+                    <div class="subfigure-caption">Gym</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/3_bar.png" alt="Figure 03">
+                    <div class="subfigure-caption">Bar</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/4_playground.png" alt="Figure 04">
+                    <div class="subfigure-caption">Playground</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/5_greenhouse.png" alt="Figure 05">
+                    <div class="subfigure-caption">Greenhouse</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/6_cafe.png" alt="Figure 06">
+                    <div class="subfigure-caption">Cafe</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/7_store.png" alt="Figure 07">
+                    <div class="subfigure-caption">Store</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/8_garden.png" alt="Figure 08">
+                    <div class="subfigure-caption">Garden</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/9_bicycle.png" alt="Figure 09">
+                    <div class="subfigure-caption">Bicycle</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/10_room.png" alt="Figure 10">
+                    <div class="subfigure-caption">Room</div>
+                </div>
+                <div class="subfigure">
+                    <img src="static/images/11_truck.png" alt="Figure 11">
+                    <div class="subfigure-caption">Truck</div>
+                </div>
+
+                <!-- Main caption -->
+                <figcaption class="main-caption mt-3">
+                    We curate the AnyInteraction dataset to evaluate zero-shot HSI synthesis. The dataset encompasses 12 diverse scenes (7 indoor and 5 outdoor) from various sources including TRUMANS, public 3D assets, and reconstructed real scenes from Mip-NeRF 360 and Tanks and Temples datasets. It features 7 types of rigid dynamic objects (Guitar, Barbell, Watering Can, Office Chair, Shopping Cart, Vase, and Mower), supporting 22 evaluation instances that include 13 static and 9 dynamic object interaction.
+                </figcaption>
+
+            </figure>
+        </div>
+    </div>
+</section>
+  <!--End Dataset -->
+
+
+<!-- Dataset -->
+<!-- <section class="hero is-small">
   <div class="hero-body">
       <div class="container">
         <h2 class="title is-2">The AnyInteraction Dataset</h2>
@@ -543,7 +651,7 @@
         </figure>
       </div>
   </div>
-</section>
+</section> -->
 <!--End Dataset -->
 
 
