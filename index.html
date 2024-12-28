@@ -123,7 +123,7 @@
             <figure class="image" style="margin-bottom: 0;">
                 <img src="static/images/teaser.jpg" alt="Research Poster">
                 <figcaption class="mt-3">
-                    ZeroHSI takes a 3D scene, an interactable object, a language description, and initial states as input to synthesize both human and dynamic object motion sequences. By distilling interactions from video generation models, ZeroHSI enables zero-shot synthesis of natural human-scene interactions in various 3D environments, supporting both static scenes and dynamic object manipulations even in reconstructed real-world scenes.
+                    ZeroHSI generates natural 3D human motion to interact with various environments (indoor/outdoor, real reconstructed/synthesized) and dynamic objects by leveraging video generation models and neural rendering, eliminating the need for paired motion-scene training data.
                 </figcaption>
             </figure>
         </div>
@@ -136,8 +136,9 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-2">Real Scene Demos</h2>
-            
+            <h2 class="title is-2" style="margin-bottom: 0;">Generated Interactions on Real Reconstructed Scenes</h2>
+            <div class="video-caption">Input Reconstructed 3D Scene</div>
+
             <div class="video-gallery-buttons" id="gallery-buttons-real-scene">
                 <button class="button is-primary" data-video-index="0">
                     <img src="static/images/garden_1.png" alt="Garden 1">
@@ -266,8 +267,9 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-2">Comparison of Dynamic Scenario</h2>
-            
+            <h2 class="title is-2" style="margin-bottom: 0;">Generated Interactions on Synthetic Scenes with Objects</h2>
+            <div class="video-caption">Input Synthetic 3D Scene</div>
+
             <div class="video-gallery-buttons" id="gallery-buttons-dynamic">
                 <button class="button is-primary" data-video-index="0">
                     <img src="static/images/1_living_room_dynamic.png" alt="Living Room Dynamic">
@@ -382,7 +384,8 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-2">Comparison of Static Scenario</h2>
+            <h2 class="title is-2" style="margin-bottom: 0;">Generated Interactions on Synthetic Scenes</h2>
+            <div class="video-caption">Input Synthetic 3D Scene</div>
             
             <div class="video-gallery-buttons" id="gallery-buttons-static">
                 <button class="button is-primary" data-video-index="0">
@@ -520,7 +523,7 @@
             <figure class="image" style="margin-bottom: 0;">
                 <img src="static/images/method.png" alt="Research Poster">
                 <figcaption class="mt-3">
-                    Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
+                    ZeroHSI takes a 3D scene, an interactable object, a language description, and initial states as input to synthesize both human and dynamic object motion sequences. Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
             </figcaption>
         </figure>
       </div>
