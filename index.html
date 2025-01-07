@@ -500,15 +500,13 @@
 <!-- Paper abstract -->
 <section class="hero is-small">
     <div class="hero-body">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">Abstract</h2>
-                    <div class="content has-text-justified" style="font-size: 1.2rem;">
-                            Human-scene interaction (HSI) generation is crucial for applications in embodied AI, virtual reality, and robotics. While existing methods can synthesize realistic human motions in 3D scenes and generate plausible human-object interactions, they heavily rely on datasets containing paired 3D scene and motion capture data, which are expensive and time-consuming to collect across diverse environments and interactions. We present ZeroHSI, a novel approach that enables zero-shot 4D human-scene interaction synthesis by integrating video generation and neural human rendering. Our key insight is to leverage the rich motion priors learned by state-of-the-art video generation models, which have been trained on vast amounts of natural human movements and interactions, and use differentiable rendering to reconstruct human-scene interactions. ZeroHSI can synthesize realistic human motions in both static scenes and environments with dynamic objects, without requiring any ground-truth motion data. We evaluate ZeroHSI on a curated dataset of different types of various indoor and outdoor scenes with different interaction prompts, demonstrating its ability to generate diverse and contextually appropriate human-scene interactions.
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 0.5rem;">Abstract</h2>
+            <figure class="image" style="margin-bottom: 0rem;">
+                <figcaption style="margin-top: 0rem;">
+                    Human-scene interaction (HSI) generation is crucial for applications in embodied AI, virtual reality, and robotics. While existing methods can synthesize realistic human motions in 3D scenes and generate plausible human-object interactions, they heavily rely on datasets containing paired 3D scene and motion capture data, which are expensive and time-consuming to collect across diverse environments and interactions. We present ZeroHSI, a novel approach that enables zero-shot 4D human-scene interaction synthesis by integrating video generation and neural human rendering. Our key insight is to leverage the rich motion priors learned by state-of-the-art video generation models, which have been trained on vast amounts of natural human movements and interactions, and use differentiable rendering to reconstruct human-scene interactions. ZeroHSI can synthesize realistic human motions in both static scenes and environments with dynamic objects, without requiring any ground-truth motion data. We evaluate ZeroHSI on a curated dataset of different types of various indoor and outdoor scenes with different interaction prompts, demonstrating its ability to generate diverse and contextually appropriate human-scene interactions.
+                </figcaption>
+            </figure>
         </div>
     </div>
 </section>
@@ -519,14 +517,14 @@
 <section class="hero is-small">
   <div class="hero-body">
         <div class="container">
-            <h2 class="title is-2">Method Overview</h2>
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Method Overview</h2>
             <figure class="image" style="margin-bottom: 0;">
                 <img src="static/images/method.png" alt="Research Poster">
                 <figcaption class="mt-3">
                     ZeroHSI takes a 3D scene, an interactable object, a language description, and initial states as input to synthesize both human and dynamic object motion sequences. Our approach begins with HSI video generation conditioned on the rendered initial state and text prompt. Through differentiable neural rendering, we optimize per-frame camera pose, human pose parameters, and object 6D pose by minimizing the discrepancy between the rendered and generated reference videos.
-            </figcaption>
-        </figure>
-      </div>
+                </figcaption>
+            </figure>
+        </div>
   </div>
 </section>
 <!--End method -->
@@ -536,7 +534,7 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-2">The AnyInteraction Dataset</h2>
+            <h2 class="title is-2" style="margin-bottom: 1rem;">The AnyInteraction Dataset</h2>
             <figure class="grid-container" style="margin-bottom: 0;">
                 <!-- Small figures -->
                 <div class="subfigure">
@@ -636,6 +634,25 @@
     </div>
 </section>
 <!--End Dataset -->
+
+
+<!--BibTex citation -->
+ <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">BibTex</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <pre><code>@article{li2024zerohsi,
+  title={ZeroHSI: Zero-Shot 4D Human-Scene Interaction by Video Generation},
+  author={Li, Hongjie and Yu, Hong-Xing and Li, Jiaman and Wu, Jiajun},
+  journal={arXiv preprint arXiv:2412.18600},
+  year={2024}
+}</code></pre>
+            </figure>
+        </div>
+    </div>
+</section>
+<!--End BibTex citation -->
 
 
 <footer class="footer">
