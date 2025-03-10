@@ -89,7 +89,7 @@ const VideoGallery = (function() {
         }
 
         const container = document.getElementById(galleryId);
-        const videoSets = container.querySelectorAll('.video-pair, .video-triple');
+        const videoSets = container.querySelectorAll('.video-single, .video-pair, .video-triple');
         const buttons = container.parentElement.querySelector('.video-gallery-buttons').querySelectorAll('.button');
         
         videoSets.forEach(set => {
@@ -141,7 +141,7 @@ const VideoGallery = (function() {
         });
 
         // Initialize first active set (either pair or triple)
-        const firstActiveSet = container.querySelector('.video-pair.active, .video-triple.active');
+        const firstActiveSet = container.querySelector('.video-single.active, .video-pair.active, .video-triple.active');
         if (firstActiveSet) {
             const initialVideos = firstActiveSet.querySelectorAll('video');
             
@@ -180,6 +180,7 @@ const VideoGallery = (function() {
             initGallery('gallery-buttons-real-scene', 'gallery-carousel-real-scene');
             initGallery('gallery-buttons-dynamic', 'gallery-carousel-dynamic');
             initGallery('gallery-buttons-static', 'gallery-carousel-static');
+            initGallery('gallery-buttons-long-term', 'gallery-carousel-long-term');
         },
         cleanup: cleanup
     };

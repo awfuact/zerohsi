@@ -34,6 +34,7 @@
     padding: 0;
     display: flex;
     justify-content: center;
+    max-width: 1000px;
 }
 
 .video-gallery-item {
@@ -89,6 +90,34 @@
     text-align: center;
     padding: 0 1rem;
     max-width: var(--content-width-md);
+}
+
+/* Video single styles */
+.video-single {
+    display: none;
+    width: 100%;
+    max-width: 1000px; /* Larger max-width for single videos */
+    margin: 0 auto;
+}
+
+.video-single.active {
+    display: block;
+}
+
+.video-single .video-container {
+    width: 100%;
+    max-width: 1000px;
+    min-width: unset;
+}
+
+.video-single video {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    background: #fff;
+    padding: 0;
+    margin: 0 auto;
 }
 
 /* Video pair styles */
@@ -171,6 +200,33 @@
     padding: 0 1rem;
     font-size: 1.2rem;
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prompt-container {
+    display: inline-block;
+    text-align: left;
+    max-width: 100%; /* Ensure container doesn't overflow */
+}
+
+.prompt-line {
+    display: grid;
+    grid-template-columns: minmax(110px, auto) 1fr; /* Fixed width for labels */
+    gap: 0.5rem;
+    margin-bottom: 0.5rem; /* Add space between lines */
+}
+
+.prompt-label {
+    text-align: right;
+    white-space: nowrap; /* Keep label on one line */
+}
+
+.prompt-text {
+    text-align: left;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
 }
 
 .hero-body .container {
@@ -208,6 +264,15 @@ figure figcaption {
 }
 
 /* Responsive adjustments */
+@media (min-width: 1400px) {
+    .video-single,
+    .video-single .video-container,
+    .video-gallery-carousel {
+        max-width: 1000px; /* Keep consistent on larger screens */
+    }
+}
+
+
 @media (max-width: 768px) {
     :root {
         --video-padding: 0.5rem;
@@ -217,6 +282,10 @@ figure figcaption {
     .video-triple {
         flex-direction: column;
         gap: 0;
+    }
+
+    .video-single .video-container video {
+        max-height: 50vh;
     }
 
     .video-pair .video-container,
@@ -239,12 +308,47 @@ figure figcaption {
     .pair-caption {
         margin-top: 0.5rem;
     }
+
+    .prompt-line {
+        grid-template-columns: minmax(90px, auto) 1fr; /* Slightly smaller label width on mobile */
+        gap: 0.25rem; /* Reduce gap on mobile */
+    }
+    
+    .pair-caption {
+        font-size: 1rem; /* Slightly smaller font on mobile */
+        padding: 0 0.5rem; /* Reduce padding on mobile */
+    }
 }
 
 /* Additional responsive adjustment for very small screens */
 @media (max-width: 480px) {
     .video-container video {
         max-height: 30vh;  /* Even smaller for very small screens */
+    }
+
+    .video-single .video-container video {
+        max-height: 40vh;
+    }
+
+    .prompt-line {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .prompt-label {
+        text-align: left;
+        font-weight: 500; /* Make labels slightly bolder */
+    }
+
+    .prompt-text {
+        padding-left: 1rem; /* Indent the text */
+    }
+
+    .pair-caption {
+        font-size: 0.95rem; /* Slightly smaller font */
+        padding: 0 0.75rem;
     }
 }
 
